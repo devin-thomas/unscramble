@@ -1,0 +1,28 @@
+name: Python Checks
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run task scripts
+        run: |
+          python Task0.py
+          python Task1.py
+          python Task2.py
+          python Task3.py
+          python Task4.py
